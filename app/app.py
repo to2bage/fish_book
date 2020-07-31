@@ -12,7 +12,7 @@ from app.web import book
 from app.models.book import db
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(__package__)  # app = Flask(__package__, template_folder="web/templates")
 
     app.config.from_object("app.config.secret")
     app.config.from_object("app.config.settings")

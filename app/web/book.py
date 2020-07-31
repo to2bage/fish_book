@@ -6,7 +6,7 @@ Author: to2bage
 Email: to2bage@hotmail.com
 Version: 0.1
 """
-from flask import Blueprint
+from flask import Blueprint, render_template
 from flask import request
 from flask import json, jsonify
 
@@ -15,7 +15,7 @@ from app.spider.yushu_book import YushuBook
 from app.view_models.book import BookCollection
 from app.forms.searchform import SearchForm
 
-api = Blueprint("book", __name__)
+api = Blueprint("book", __name__, template_folder="templates")
 
 # @api.route("/search/<string:q>/<int:page>")
 # def search(q, page):
@@ -46,6 +46,10 @@ api = Blueprint("book", __name__)
 
 @api.route("/search")
 def search():
+    """
+    /book/search?q=金庸&page=1
+    :return:
+    """
     form = SearchForm(request.args)
     if form.validate():
         q = form.q.data
@@ -64,4 +68,11 @@ def search():
         return json.dumps(book_collection, default=lambda o: o.__dict__)
     else:
         return form.errors
-    pass
+
+@api.route("/test")
+def test():
+    r = {
+        "name": "to2bage",
+        "age": 45
+    }
+    return render_template("test.html", data = r)

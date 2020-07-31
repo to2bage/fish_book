@@ -5,4 +5,11 @@
     <orderEntry type="jdk" jdkName="Python 3.8 (fish_book-S0zNv4GU)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="TemplatesService">
+    <option name="TEMPLATE_FOLDERS">
+      <list>
+        <option value="$MODULE_DIR$/app/web/templates" />
+      </list>
+    </option>
+  </component>
 </module>
