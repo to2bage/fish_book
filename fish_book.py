@@ -6,7 +6,7 @@ Author: to2bage
 Email: to2bage@hotmail.com
 Version: 0.1
 """
-from app.app import create_app
+from app import create_app
 
 app = create_app()
 

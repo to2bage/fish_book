@@ -39,3 +39,20 @@ class RegisgerForm(Form):
     def validate_nickname(self, field):
         if User.query.filter_by(nickname=field.data).first():
             raise ValidationError("账户已经存在")
+
+
+class LoginForm(Form):
+    email = StringField(
+        validators=[
+            DataRequired(message="电子邮件不可为空"),
+            Length(min=6, max=32),
+            Email(message="电子邮件的格式不正确")
+        ]
+    )
+
+    password = PasswordField(
+        validators=[
+            DataRequired(message="密码不可为空"),
+            Length(min=6, max=32, message="密码至少需要6个字符, 最多32个字符")
+        ]
+    )
