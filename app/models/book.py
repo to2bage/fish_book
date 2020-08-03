@@ -7,11 +7,10 @@ Email: to2bage@hotmail.com
 Version: 0.1
 """
 from sqlalchemy import Column, String, Integer
-from flask_sqlalchemy import SQLAlchemy
 
-db = SQLAlchemy()
+from app.models.base import Base
 
-class Book(db.Model):
+class Book(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(String(50), nullable=False)
     author = Column(String(30), default='未名')

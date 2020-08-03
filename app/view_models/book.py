@@ -19,7 +19,11 @@ class BookViewModel:
         self.pubdate = data["pubdate"]
         self.summary = data["summary"] or ""
         self.pages = data["pages"] or ""
-    pass
+
+    @property
+    def intro(self):
+        li = filter(lambda x: True if x else False, [self.author, self.publisher, self.price])
+        return " / ".join(li)
 
 
 class BookCollection:

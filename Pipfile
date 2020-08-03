@@ -12,6 +12,7 @@ wtforms = "*"
 flask-sqlalchemy = "*"
 sqlalchemy = "*"
 requests = "*"
+email-validator = "*"
 
 [requires]
 python_version = "3.8"

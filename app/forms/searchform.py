@@ -20,5 +20,5 @@ class SearchForm(Form):
     page = IntegerField(
         validators=[
             NumberRange(min=1, max=99, message="页码的范围: [1, 99]")
-        ]
+        ], default=1
     )

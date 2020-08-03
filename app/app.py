@@ -8,8 +8,8 @@ Version: 0.1
 """
 from flask import Flask
 
-from app.web import book
-from app.models.book import db
+from app.web import web
+from app.models.base import db
 
 def create_app():
     app = Flask(__package__)  # app = Flask(__package__, template_folder="web/templates")
@@ -20,10 +20,11 @@ def create_app():
     register_blueprint(app)
     register_plugin(app)
 
+    print(app.url_map)
     return app
 
 def register_blueprint(app: Flask):
-    app.register_blueprint(book.api, url_prefix="/book")
+    app.register_blueprint(web)
 
 def register_plugin(app: Flask):
     db.init_app(app)

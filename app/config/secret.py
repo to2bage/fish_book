@@ -11,3 +11,5 @@ DEBUG = True
 
 # 数据库uri
 SQLALCHEMY_DATABASE_URI = "mysql+cymysql://root:zymic021635@221.229.216.53:3306/fish_book"
+
+SECRET_KEY = "f;er';105'^$#vIDSla186"

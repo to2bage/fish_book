@@ -40,6 +40,10 @@ class YushuBook():
             self.total = data["total"]
             self.books = data["books"]
 
+    @property
+    def first(self):
+        return self.books[0] if len(self.books) >= 1 else None
+
 
 
 class _YushuBook():
